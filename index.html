@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Ghotok - Find Your Perfect Match, Your Way</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #6366f1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo::before {
+            content: "💜";
+            font-size: 32px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #64748b;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #6366f1;
+        }
+
+        .cta-button {
+            background: #6366f1;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: #4f46e5;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            color: #1e293b;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #64748b;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .secondary-button {
+            background: white;
+            color: #6366f1;
+            padding: 12px 28px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid #6366f1;
+        }
+
+        .secondary-button:hover {
+            background: #f8f9ff;
+            transform: translateY(-2px);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            color: #1e293b;
+            margin-bottom: 60px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            padding: 40px;
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
+            border-radius: 20px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #6366f1;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .step {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #6366f1;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .step h3 {
+            font-size: 22px;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            color: #64748b;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .pricing-subtitle {
+            text-align: center;
+            color: #64748b;
+            font-size: 18px;
+            margin-top: -40px;
+            margin-bottom: 50px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .pricing-card {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
+        }
+
+        .pricing-card.featured {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            border-color: #6366f1;
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .pricing-card.featured h3,
+        .pricing-card.featured .features-list,
+        .pricing-card.featured .price {
+            color: white;
+        }
+
+        .plan-badge {
+            background: #6366f1;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .plan-badge.premium {
+            background: white;
+            color: #6366f1;
+        }
+
+        .plan-badge.elite {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+
+        .pricing-card h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #1e293b;
+        }
+
+        .price {
+            margin-bottom: 10px;
+        }
+
+        .price .currency {
+            font-size: 18px;
+            vertical-align: top;
+        }
+
+        .price .amount {
+            font-size: 48px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .price .period {
+            font-size: 16px;
+            color: #64748b;
+        }
+
+        .discount-note {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .features-list li {
+            padding: 12px 0;
+            color: #64748b;
+            border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+        }
+
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-card.featured .features-list li {
+            color: rgba(255, 255, 255, 0.95);
+            border-bottom-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .plan-button {
+            display: block;
+            width: 100%;
+            padding: 14px 28px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .plan-button.basic {
+            background: #6366f1;
+            color: white;
+        }
+
+        .plan-button.basic:hover {
+            background: #4f46e5;
+        }
+
+        .plan-button.premium {
+            background: white;
+            color: #6366f1;
+        }
+
+        .plan-button.premium:hover {
+            background: #f8f9ff;
+        }
+
+        .plan-button.elite {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+        }
+
+        .plan-button.elite:hover {
+            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+        }
+
+        .payment-info {
+            text-align: center;
+            padding: 30px;
+            background: #f8f9ff;
+            border-radius: 15px;
+            color: #64748b;
+        }
+
+        .payment-info p {
+            margin: 10px 0;
+        }
+
+        .payment-info strong {
+            color: #1e293b;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-section .cta-button {
+            background: white;
+            color: #6366f1;
+        }
+
+        .cta-section .cta-button:hover {
+            background: #f8f9ff;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e293b;
+            color: white;
+            padding: 50px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #6366f1;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Digital Ghotok</div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            <a href="#signup" class="cta-button">Get Started</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Find Your Perfect Match, Your Way</h1>
+            <p>A private and secure matrimonial platform designed for introverts. Connect through shared interests and build meaningful relationships at your own pace.</p>
+            <div class="hero-buttons">
+                <a href="#signup" class="cta-button">Start Your Journey</a>
+                <a href="#how-it-works" class="secondary-button">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Digital Ghotok?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Complete Privacy</h3>
+                    <p>Your personal information stays protected. Control who sees your profile and communicate only when you're ready.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Interest-Based Matching</h3>
+                    <p>Connect with people who share your passions and values. Our algorithm focuses on meaningful compatibility.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Comfortable Communication</h3>
+                    <p>No pressure to respond immediately. Take your time to craft thoughtful messages and build genuine connections.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌟</div>
+                    <h3>Introvert-Friendly</h3>
+                    <p>Designed specifically for those who prefer deeper, one-on-one connections over large social gatherings.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✅</div>
+                    <h3>Verified Profiles</h3>
+                    <p>Every profile is verified to ensure authenticity and create a safe, trustworthy community.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Simple Interface</h3>
+                    <p>Clean, uncluttered design that makes finding your match stress-free and enjoyable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Create Your Profile</h3>
+                    <p>Share your interests, values, and what you're looking for in a partner.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Get Matched</h3>
+                    <p>Our algorithm suggests compatible profiles based on your preferences and interests.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Connect Privately</h3>
+                    <p>Message matches at your own pace in a secure, private environment.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Build Together</h3>
+                    <p>Develop meaningful connections that can lead to lasting relationships.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Choose Your Plan</h2>
+            <p class="pricing-subtitle">Start free and upgrade when you're ready for more personalized support</p>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="plan-badge">Most Popular</div>
+                    <h3>Basic Membership</h3>
+                    <div class="price">
+                        <span class="amount">Free</span>
+                    </div>
+                    <ul class="features-list">
+                        <li>✓ Profile creation</li>
+                        <li>✓ Primary matchmaking features</li>
+                        <li>✓ Weekly group counseling sessions</li>
+                        <li>✓ Expert advice</li>
+                    </ul>
+                    <a href="#signup" class="plan-button basic">Get Started</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="plan-badge premium">Best Value</div>
+                    <h3>Premium Membership</h3>
+                    <div class="price">
+                        <span class="currency">BDT</span>
+                        <span class="amount">499</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <div class="discount-note">IUB students get 18% off</div>
+                    <ul class="features-list">
+                        <li>✓ Full matchmaking access</li>
+                        <li>✓ Premium quality counseling sessions</li>
+                        <li>✓ Extra guidance and support</li>
+                        <li>✓ 5 one-on-one sessions</li>
+                        <li>✓ Priority matching</li>
+                    </ul>
+                    <a href="#signup" class="plan-button premium">Choose Premium</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="plan-badge elite">Exclusive</div>
+                    <h3>Elite Matchmaking</h3>
+                    <div class="price">
+                        <span class="currency">BDT</span>
+                        <span class="amount">4,999</span>
+                        <span class="period">one-time</span>
+                    </div>
+                    <ul class="features-list">
+                        <li>✓ Unlimited one-on-one counseling</li>
+                        <li>✓ No appointment needed</li>
+                        <li>✓ Personalized matchmaking</li>
+                        <li>✓ Exclusive bonus features</li>
+                        <li>✓ VIP support</li>
+                    </ul>
+                    <a href="#signup" class="plan-button elite">Go Elite</a>
+                </div>
+            </div>
+            <div class="payment-info">
+                <p><strong>Payment Methods:</strong> Mobile Banking, Debit/Credit Cards, and other approved digital methods</p>
+                <p>Auto-renewal available • You'll be notified of any pricing or feature changes</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Find Your Match?</h2>
+            <p>Join thousands of introverts who found their perfect partner with Digital Ghotok</p>
+            <a href="#signup" class="cta-button">Create Free Account</a>
+        </div>
+    </section>
+
+    <footer id="about">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Digital Ghotok</h3>
+                    <p>A matrimonial platform designed for introverts to find meaningful connections through shared interests and values.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#signup">Sign Up</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#help">Help Center</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="#facebook">Facebook</a></li>
+                        <li><a href="#instagram">Instagram</a></li>
+                        <li><a href="#twitter">Twitter</a></li>
+                        <li><a href="#email">Email</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Digital Ghotok. All rights reserved. Made with 💜 for introverts.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
